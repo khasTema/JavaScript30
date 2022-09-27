@@ -5,6 +5,7 @@
   <title>Videos</title>
 </head>
 <body>
+  <p class="total">0</p>
   <ul class="videos">
     <li data-time="5:43">
       Video 1
@@ -182,6 +183,26 @@
     </li>
   </ul>
 <script>
+  const timeNodes = document.querySelectorAll('[data-time]')
+  // console.table(timeNodes)
+  const seconds = [...timeNodes]
+    .map(node => node.dataset.time)
+    .map(timeCode =>  {
+      const [min, sec] = timeCode.split(':').map(parseFloat) //converts string into numbers
+      return min * 60 + sec
+    })
+    .reduce((total, seconds) => total + seconds, 0)
+  // console.log(seconds)
+
+  let secondsLeft = seconds
+  const hours = Math.floor(secondsLeft / 3600)
+  secondsLeft = secondsLeft % 3600
+  const min = Math.floor(secondsLeft / 60)
+  secondsLeft = secondsLeft % 60
+
+  console.log(hours+':'+min+':'+secondsLeft)
+  document.querySelector('.total').innerHTML = `Total time is: ${hours}:${min}:${secondsLeft}`
+
 </script>
 </body>
 </html>
