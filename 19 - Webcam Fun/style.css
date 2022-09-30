@@ -26,11 +26,13 @@ html {
 }
 
 .photo {
-  width: 100%;
-  float: left;
+  /* width: 100%; */
+  /* float: left; */
+  border-radius: 30px;
 }
 
 .player {
+  display: none;
   position: absolute;
   top: 20px;
   right: 20px;
