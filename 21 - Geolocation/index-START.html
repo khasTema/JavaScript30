@@ -58,7 +58,16 @@
     }
     /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
   </style>
-  <script>
+  <script> 
+    const arrow = document.querySelector('.arrow')
+    const speed = document.querySelector('.speed-value')
+
+    navigator.geolocation.watchPosition(data => {
+      console.log(data)
+      speed.textContent = data.coords.speed;
+      arrow.style.transform = `rotate(${data.coords.headding}deg)`;
+    }, err => console.log('location sharring not allowed'))
+     
   </script>
 </body>
 </html>
