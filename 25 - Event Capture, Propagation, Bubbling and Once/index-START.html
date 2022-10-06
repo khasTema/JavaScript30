@@ -40,9 +40,21 @@
   }
 </style>
 
-<button></button>
+<button>click button</button>
 <script>
+  const divs = document.querySelectorAll('div')
+  const btn = document.querySelector('button')
 
+  function logText(e) {
+    e.stopPropagation();
+    console.log(this.classList.value)
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText))
+
+  btn.addEventListener('click', () => console.log('only once'), {
+    once: true
+  })
 </script>
 </body>
 </html>
