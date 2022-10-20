@@ -20,7 +20,6 @@
   const video = document.querySelector('.flex');
 
   function handleMove(e) {
-    // console.log(e)
     const y = e.pageY - this.offsetTop;
     const percent = y / this.offsetHeight;
     const min = 0.4;
@@ -29,7 +28,6 @@
     const playBackRate = percent * (max -min) + min; 
     bar.style.height = height
     bar.textContent = playBackRate.toFixed(1) +'x';
-    // console.log(height)
     video.playbackRate = playBackRate;
   }
 
